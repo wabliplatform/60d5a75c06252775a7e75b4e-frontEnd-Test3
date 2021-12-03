@@ -22,10 +22,11 @@ class Form {
     /**
      * Constructs a new <code>Form</code>.
      * @alias module:model/Form
+     * @param attr {String} 
      */
-    constructor() { 
+    constructor(attr) { 
         
-        Form.initialize(this);
+        Form.initialize(this, attr);
     }
 
     /**
@@ -33,7 +34,8 @@ class Form {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, attr) { 
+        obj['attr'] = attr;
     }
 
     /**
@@ -50,6 +52,9 @@ class Form {
             if (data.hasOwnProperty('_id')) {
                 obj['_id'] = ApiClient.convertToType(data['_id'], 'String');
             }
+            if (data.hasOwnProperty('attr')) {
+                obj['attr'] = ApiClient.convertToType(data['attr'], 'String');
+            }
         }
         return obj;
     }
@@ -61,6 +66,11 @@ class Form {
  * @member {String} _id
  */
 Form.prototype['_id'] = undefined;
+
+/**
+ * @member {String} attr
+ */
+Form.prototype['attr'] = undefined;
 
 
 

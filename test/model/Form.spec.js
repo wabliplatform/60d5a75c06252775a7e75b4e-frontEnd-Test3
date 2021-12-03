@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property attr (base name: "attr")', function() {
+      // uncomment below and update the code to test the property attr
+      //var instance = new TempApi.Form();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
